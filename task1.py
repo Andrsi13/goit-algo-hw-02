@@ -6,7 +6,7 @@ queue = Queue()
 
 def generate_request():
     new_request = time.time()
-    print(new_request)
+    print(f'Нова заявка з ID:{new_request}')
     queue.put(new_request)
 
 def process_request():
@@ -21,4 +21,12 @@ while True:
     generate_request()
     process_request()
     time.sleep(1)
+
+    user_input = input("Для завершення програми введіть 'exit' або '+' для продовження: ")
+    if user_input.strip().lower() == 'exit':
+        print("Програма завершила роботу.")
+        break
+    elif user_input.strip() == '+':
+        continue
+
 
